@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>CAB Locator</title>
+<meta name="description" content="Site to simplify the process of locating the proper CAB file.">
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css" rel="stylesheet">
+<!--- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all"> --->
+<link rel="stylesheet" type="text/css" href="css/main.css" media="all">
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+	$.ajax({
+		type: "GET",
+		url: "xml/cabs.xml",
+		dataType: "xml",
+		success : function(data) {
+				window.xml=data;
+				xmlParser();
+		}
+	});
+});
+function xmlParser() {
+	var models = [];
+	$(window.xml).find('model').each(function() {
+	if ($(this).text().length > 0)
+	{
+		models.push($(this).text());
+	}
+	});
+	models.sort();
+	newmodels = [];
+	for	(i=0; i<models.length; i++) {
+		if (models[i] != models[i-1]) {
+			newmodels.push(models[i]);
+		}
+	}
+	var modelDropDowntxt = '<div class="col-xs-4" id="modelDropDown">' +
+	'<form action=""><select class="myDropDown" id="modelMenu" onchange="osDropDown()">';
+	for	(i=0;i<newmodels.length;i++) {
+		modelDropDowntxt = modelDropDowntxt + '<option value="' +
+        newmodels[i]+'">'+newmodels[i]+'</option>';
+	}
+	modelDropDowntxt = modelDropDowntxt + '</select></form></div>';
+	$('#load').fadeOut();
+	$("#results").html(modelDropDowntxt);
+	$("#osDropDown").remove();
+	$("#modelDropDown").after('<div id="osDropDown" class="col-xs-4"></div>');
+}
+
+function osDropDown() {
+	osDropDowntxt = '<form action=""><select class="myDropDown" id="osMenu" onchange="showLink(this)">';
+	selectedModel = $("#modelMenu").val();
+	availOS = [];
+	cabLink = [];
+
+	for	(i=0; i<newmodels.length; i++) {
+		if (newmodels[i] == selectedModel)
+		{
+			$(window.xml).find('model:contains("'+newmodels[i]+'")').each(function() {
+				$(this).parent().find('os').each(function() {
+					availOS.push($(this).text());
+					cabLink.push($(this).parent().attr("link"));
+				});
+			});
+		}
+	}
+	for	(i=0; i<availOS.length; i++) {
+		osDropDowntxt += '<option value="' + cabLink[i] + '">' + availOS[i] + '</option>';
+	}
+	osDropDowntxt += '</select></form>';
+	$("#osDropDown").html(osDropDowntxt);
+	$("#link").remove();
+	$("#osDropDown").after('<div id="link" class="col-md-4"></div>');
+}
+
+function showLink(cab){
+	selectedCAB = $("#osMenu").val();
+	$("#link").html('<a class="btn btn-success" href="'+selectedCAB+'" target="new">'+
+		'<span class="glyphicon glyphicon-link"></span> Download Link</a>');
+}
+</script>
+</head>
+<body>
+<div class="container drop-shadow main">
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-xs-6">
+				<a href="http://www.panasonic.com/toughbook/support">
+				<img src = "images/SolutionsConsultingLogo.png" alt="Panasonic Solutions Consulting">
+				</a>
+			</div>
+			<div class="col-xs-3 text-right">
+			<form id="passwordform" action="http://supportishere.com/files/cab/add.php" method="post" class="form-inline">
+				<div class="form-group">
+					<label for="inputPassword" class="sr-only">Password</label>
+					<input type="password" name="password" class="form-control" placeholder="Password">
+				</div>
+				</div>
+				<div class="col-xs-3">
+					<button type="submit" class="btn btn-default">Add a new CAB</button>
+				</div>
+			</form>
+		</div>
+		<h1>CAB Locator</h1>
+		<hr>
+		<p>Please use the dropdowns to locate the proper CAB file.<br/>
+		<span class="glyphicon glyphicon-info-sign"></span>  <i>If using outside of Microsoft Deployment Toolkit, use the following command to extract the CAB to a folder:</i><br/>
+		<code>expand -f:* PDP_G1mk3_Win8.1x64_V4.01L10M12.cab .</code> <br />
+			<img src="images/expand_prompt.jpg" alt="Cmd prompt view of extraction command" />
+		</p>
+		<div id="results" class="row"><img src="images/loader.gif" /></div>
+	</div>
+	<p class="emailtext"><span class="glyphicon glyphicon-envelope"></span>  Contact  <a href="mailto:imaging@us.panasonic.com">Imaging Support</a> for any further assistance.</p>
+</div>
+</body>
+</html>

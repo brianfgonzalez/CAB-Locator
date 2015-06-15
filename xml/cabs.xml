@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cabs>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jcmd3cWZudUVsZGc&amp;authuser=1">
+		<name>PDP_19mk8_Win7x64_V1.00L10M00</name>
+		<os>Windows 7 x64</os>
+		<model>CF19-8</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jQ1dKREFuQ2NjcDQ&amp;authuser=1">
+		<name>PDP_19mk8_Win7x86_V1.00L10M00</name>
+		<os>Windows 7 x86</os>
+		<model>CF19-8</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jTkU0VTVvQjh6TnM&amp;authuser=1">
+		<name>PDP_19mk8_Win8.1x64_V1.01L10M00</name>
+		<os>Windows 8.1 x64</os>
+		<model>CF19-8</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jaEpNWnZRckxEYUU&amp;authuser=1">
+		<name>PDP_31mk5_Win7x64_V4.00L10M00</name>
+		<os>Windows 7 x64</os>
+		<model>CF31-5</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jQmJxdzBHRFlJWnM&amp;authuser=1">
+		<name>PDP_31mk5_Win7x86_V4.00L10M00</name>
+		<os>Windows 7 x86</os>
+		<model>CF31-5</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jMVlBY0FDVnc3Q00&amp;authuser=1">
+		<name>PDP_31mk5_Win8.1x64_V4.01L10M00</name>
+		<os>Windows 8.1 x64</os>
+		<model>CF31-5</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jfmM4MWJBNkY4Q0ZrWGt5eTRlLXZWS0g1V2dGNnZXU3BaTjg3SllWUnJaNjA&amp;authuser=1">
+		<name>PDP_54mk1_Win7x64_V4.00L10M00</name>
+		<os>Windows 7 x64</os>
+		<model>CF54-1</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jfndhMVE1b1kxSF9YS1NQa0VnQXQ5OVR6cDlfYmFaeU1DWVpqT0htc1dHdHM&amp;authuser=1">
+		<name>PDP_54mk1_Win7x86_V4.00L10M00</name>
+		<os>Windows 7 x86</os>
+		<model>CF54-1</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jfnFBMlBvRGxlb0k0cFQwaTFGMEdYOTBRVU42U3V1OXZrLUxwRGtDb2VITjg&amp;authuser=1">
+		<name>PDP_54mk1_Win8.1x64_V4.01L10M00</name>
+		<os>Windows 8.1 x64</os>
+		<model>CF54-1</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0ja0NwOWE3eEp5bFU&amp;authuser=1">
+		<name>PDP_G1mk3_Win7x64_V4.00L10M00</name>
+		<os>Windows 7 x64</os>
+		<model>FZG1-3</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jSjNyN0VBX05EczA&amp;authuser=1">
+		<name>PDP_G1mk3_Win7x86_V4.00L10M00</name>
+		<os>Windows 7 x86</os>
+		<model>FZG1-3</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jUDdVSVQ2cFYtNFE&amp;authuser=1">
+		<name>PDP_G1mk3_Win8.1x64_V4.01L10M00</name>
+		<os>Windows 8.1 x64</os>
+		<model>FZG1-3</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jdm9Fd25kVXhWTlE&amp;authuser=1">
+		<name>PDP_G1mk2_M1mk1_Win8.1x64_V2.01L11M10</name>
+		<os>Windows 8.1 x64</os>
+		<model>FZG1-2</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jdERQWHRMd0FSdms&amp;authuser=1">
+		<name>PDP_V2.01L10M00</name>
+		<os>Windows 8.1 x64</os>
+		<model>FZM1-1</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jQjh3ekFZcWhaQnM&amp;authuser=1">
+		<name>PDP_W732_V1.15</name>
+		<os>Windows 7 x86</os>
+		<model>CFC2-1</model>
+		<model>CF19-7</model>
+		<model>CF31-4</model>
+		<model>CF53-3</model>
+		<model>FZG1-1</model>
+		<model>CFH2-3</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jb2xUckhWMVppS3c&amp;authuser=1">
+		<name>PDP_W732_V2.09</name>
+		<os>Windows 7 x86</os>
+		<model>CFC2-2</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jcWw2Sm9tUHdWWGM&amp;authuser=1">
+		<name>PDP_W764_V1.15</name>
+		<os>Windows 7 x64</os>
+		<model>CFC2-1</model>
+		<model>CF19-7</model>
+		<model>CF31-4</model>
+		<model>CF53-3</model>
+		<model>FZG1-1</model>
+		<model>CFH2-3</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jLWFFT2lrNEYzRkU&amp;authuser=1">
+		<name>PDP_Win732_V2.00L08M06</name>
+		<os>Windows 7 x86</os>
+		<model>FZG1-2</model>
+		<model>FZM1-1</model>
+		<?ignore
+		<model>CFC2-2</model>
+		?>
+		<model>CF53-4</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jZ09FSFdoNDhNVGM&amp;authuser=1">
+		<name>PDP_Win732_V2.01_drivers</name>
+		<os>Windows 7 x86</os>
+		<model></model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jbS1oTWUxcVlFUUU&amp;authuser=1">
+		<name>PDP_Win764_V2.00L10M03</name>
+		<os>Windows 7 x64</os>
+		<model>FZG1-2</model>
+		<model>FZM1-1</model>
+		<model>CFC2-2</model>
+		<model>CF53-4</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jMDlZZjZQOXV3a1U&amp;authuser=1">
+		<name>PDP_Win764_V2.01_drivers</name>
+		<os>Windows 7 x64</os>
+		<model></model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jZVZKV1JjNHFWSVk&amp;authuser=1">
+		<name>PDP_Win8164_V2.01L11M01</name>
+		<os>Windows 8.1 x64</os>
+		<model>CFC2-2</model>
+		<model>CF53-4</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0B_636cnOwn0jV3QzRHQ0LWs1X1k&amp;authuser=1">
+		<name>PDP_Win8x64_V2.01L08M00</name>
+		<os>Windows 8 x64</os>
+		<model>FZG1-2</model>
+		<model>FZM1-1</model>
+	</cab>
+	<cab link="https://drive.google.com/open?id=0BwHI1r8k8A75dGlpa0NkTWJ5RjQ&amp;authuser=1">
+		<name>PDP_G1mk3_Win8x64_V4.01L10M00</name>
+		<os>Windows 8 x64</os>
+		<model>FZG1-3</model>
+	</cab>
+</cabs>
