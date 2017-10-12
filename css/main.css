@@ -1,13 +1,45 @@
-.myDropDown {
+body,
+.headerView {
+	background: #000 url(../images/background.jpg) no-repeat fixed center 0;
+  background-size: 100% 100%;
+}
+.main {
+	max-width:1000px;
+	max-height: 100%;
+	margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+.emailtext {
+	padding-left: 20px;
+}
+.cssModels {
 	font-size: 23px;
 	width: 100%;
 }
-.main {
-	max-width:800px;
-	max-height: 100%;
-	margin-top: 20px;
-  padding:0 15px 0 15px;
+.cssOSs {
+	font-size: 21px;
+  overflow: scroll;
+	width: 100%;
 }
+.cssBanner {
+  font-family: Tahoma;
+  font-size: 33px;
+  vertical-align: text-bottom;
+}
+
+.cssTableLinks {
+  border-width: 2px;
+  background-color: #e6e6e6;
+}
+.cssLinksImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60px;
+}
+
+/*
 .drop-shadow {
     -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
@@ -19,6 +51,7 @@
     padding-left:0;
     padding-right:0;
 }
-.emailtext {
-	padding-left: 20px;
+.jumbotron {
+   margin-bottom: 0px !important;
 }
+*/

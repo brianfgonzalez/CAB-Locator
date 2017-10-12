@@ -1,119 +1,249 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>CAB Locator</title>
-<meta name="description" content="Site to simplify the process of locating the proper CAB file.">
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css" rel="stylesheet">
-<!--- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all"> --->
-<link rel="stylesheet" type="text/css" href="css/main.css" media="all">
-<script src="js/jquery-1.11.3.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script>
-$(document).ready(function() {
-	$.ajax({
-		type: "GET",
-		url: "xml/cabs.xml",
-		dataType: "xml",
-		success : function(data) {
-				window.xml=data;
-				xmlParser();
-		}
-	});
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<title>CAB Finder 2.0</title>
+	<meta content="Site to simplify the process of locating the proper CAB file." name="description">
+	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css" rel="stylesheet">
+	<link href="css/main.css" media="all" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  fajaxCall();
 });
-function xmlParser() {
-	var models = [];
-	$(window.xml).find('model').each(function() {
-	if ($(this).text().length > 0)
-	{
-		models.push($(this).text());
-	}
-	});
-	models.sort();
-	newmodels = [];
-	for	(i=0; i<models.length; i++) {
-		if (models[i] != models[i-1]) {
-			newmodels.push(models[i]);
-		}
-	}
-	var modelDropDowntxt = '<div class="col-xs-4" id="modelDropDown">' +
-	'<form action=""><select class="myDropDown" id="modelMenu" onchange="osDropDown()">';
-	for	(i=0;i<newmodels.length;i++) {
-		modelDropDowntxt = modelDropDowntxt + '<option value="' +
-        newmodels[i]+'">'+newmodels[i]+'</option>';
-	}
-	modelDropDowntxt = modelDropDowntxt + '</select></form></div>';
-	$('#load').fadeOut();
-	$("#results").html(modelDropDowntxt);
-	$("#osDropDown").remove();
-	$("#modelDropDown").after('<div id="osDropDown" class="col-xs-4"></div>');
+
+function fToggleXml(){
+  fajaxCall();
 }
 
-function osDropDown() {
-	osDropDowntxt = '<form action=""><select class="myDropDown" id="osMenu" onchange="showLink(this)">';
-	selectedModel = $("#modelMenu").val();
-	availOS = [];
-	cabLink = [];
-
-	for	(i=0; i<newmodels.length; i++) {
-		if (newmodels[i] == selectedModel)
-		{
-			$(window.xml).find('model:contains("'+newmodels[i]+'")').each(function() {
-				$(this).parent().find('os').each(function() {
-					availOS.push($(this).text());
-					cabLink.push($(this).parent().attr("link"));
-				});
-			});
-		}
-	}
-	for	(i=0; i<availOS.length; i++) {
-		osDropDowntxt += '<option value="' + cabLink[i] + '">' + availOS[i] + '</option>';
-	}
-	osDropDowntxt += '</select></form>';
-	$("#osDropDown").html(osDropDowntxt);
-	$("#link").remove();
-	$("#osDropDown").after('<div id="link" class="col-md-4"></div>');
+function fajaxCall(){
+  if (typeof $("#selectToggleXml").val() === "undefined") {
+    oName = "cab";
+  }
+  else {
+    oName = $("#selectToggleXml").val();
+  }
+  
+  sUrl = "xml/"+oName+"s.xml";
+  $.ajax({
+    type: "GET",
+    url: sUrl,
+    dataType: "xml",
+    success: function(data) {
+      window.xml = data;
+      fXmlParser();
+    }
+  });
 }
 
-function showLink(cab){
-	selectedCAB = $("#osMenu").val();
-	$("#link").html('<a class="btn btn-success" href="'+selectedCAB+'" target="new">'+
-		'<span class="glyphicon glyphicon-link"></span> Download Link</a>');
+function fXmlParser() {
+  var aModels = [];
+  $(window.xml).find("model").each(function() {
+    if ($(this).text().length > 0) {
+      aModels.push($(this).text());
+    }
+  });
+  aModels.sort();
+  aNewModels = [];
+  for (i = 0; i < aModels.length; i++) {
+    if (aModels[i] != aModels[i - 1]) {
+      aNewModels.push(aModels[i]);
+    }
+  }
+  sModelsHtml = '<div id="divModels" class="col-xs-3"><form action="">' +
+  '<select id="selectModels" size="9" class="cssModels" onchange="fOsDropDown();">';
+  for (i = 0; i < aNewModels.length; i++) {
+    if (i == 0) {
+      sModelsHtml += '<option value="'+aNewModels[i]+'" selected>'+aNewModels[i]+'</option>';
+    } else {
+      sModelsHtml += '<option value="'+aNewModels[i]+'">'+aNewModels[i]+'</option>';
+    }
+  }
+  sModelsHtml += "</select></form></div>";
+  $("#load").fadeOut();
+  $("#results").html(sModelsHtml);
+  $("#selectOSs").remove();
+  $("#divModels").after('<div id="divOSs" class="col-xs-9"></div>');
+  fOsDropDown();
 }
+
+function fOsDropDown() {
+  sOSsHtml = '<form action=""><select id="selectOSs" size="5" class="cssOSs" onchange="fShowLink();">';
+  sSelectedModel = $("#selectModels").val();
+  aOSs = [];
+  $(window.xml).find('model:contains("'+sSelectedModel+'")').each(function() {
+    $(this).parent().find("os").each(function() {
+      sOSName = $(this).text();
+	  $(this).parent().find("date").each(function() {
+		sDate = $(this).text();
+	  });
+      sName = $(this).parent().attr("name");
+      aOSs.push(sOSName+","+sName+","+sDate);
+    });
+  });
+  $(aOSs.sort().reverse()).each(function() {
+    x = this.split(",");
+    sOSName = x[0].toUpperCase();
+    sName =  x[1];
+	  sShortName = sName.slice(sName.length/3,sName.length);
+    //n = x[1].replace(/PDP|_|Win|.cab/gi, "").toLowerCase();
+	sDate =  x[2];
+    sOSsHtml += '<option value="'+sName+'">'+sOSName+' | '+sName+'</option>';
+    //sOSsHtml += '<option value="'+sName+'">'+sOSName+' | '+sDate+' | ..'+sShortName+'</option>';
+  });
+  sOSsHtml += "</select></form>";
+  $("#divOSs").html(sOSsHtml);
+  $("#divLinks").remove();
+  $("#divOSs").after('<div id="divLinks" class="col-xs-9 container cssLinksDiv"></div>');
+  $("#selectOSs").prop("selectedIndex",0);
+  fShowLink();
+}
+
+function fShowLink()
+{
+  $("#tableLinksDiv").remove();
+  sSelectedCabName = $("#selectOSs").val();
+  sLowerCabName = sSelectedCabName.toLowerCase();
+  sDivHtml = '<div id="tableLinksDiv" class="container">' +
+    '<h4><i>Use the FTP links if you <b>can not</b> download files using google drive services.</i></h4>' +
+    '<table id="tableLinks" class="table table-bordered cssTableLinks">' +
+    '<tr><td id="tdGoogleDrive"><img src="images/gdrive_off.png" /> <== Google Drive Link</td>' +
+    '<td id="tdFtpDrive"><img src="images/ftp_off.png" /> <== FTP Link</td></tr></table></div>';
+  $("#divLinks").append(sDivHtml);
+  $(window.xml).find(oName).filter(function()
+  {
+    if ($(this).attr('name').toLowerCase() == sLowerCabName)
+    {
+      $(this).find('googlelink').each(function() {
+        sLink = $(this).text();
+        if (sLink.trim().length < 1) { return; }
+        //sCabName = $(this).parent().attr('name');
+        sAttrib = 'target="new" data-toggle="tooltip" data-placement="bottom"';
+        sLinkHtml = '<a href="'+sLink+'" '+sAttrib+' title="'+sLowerCabName+'"><img src="images/gdrive.png" /> <== Google Drive Link</a>';
+        $("#tdGoogleDrive").html(sLinkHtml);
+      });
+      $(this).find("ftplink").each(function() {
+        sLink = $(this).text();
+        if (sLink.trim().length < 1) { return; }
+        sLinkHtml = '<a href="'+sLink+'" '+sAttrib+' title="'+sLowerCabName+'"><img src="images/ftp.png"><== FTP Link</a>';
+        $("#tdFtpDrive").html(sLinkHtml);
+      });
+    }
+  });
+}
+
+$(function()
+{
+  $("#buttonAdminSubmit").click(function() {
+    sUrl = $(location).attr("href");
+    $("#formAdminPassword").attr("action", sUrl+"admin.php");
+    $("#formAdminPassword").submit();
+  });
+});
 </script>
 </head>
 <body>
-<div class="container drop-shadow main">
-	<div class="jumbotron">
-		<div class="row">
-			<div class="col-xs-6">
-				<a href="http://www.panasonic.com/toughbook/support">
-				<img src = "images/SolutionsConsultingLogo.png" alt="Panasonic Solutions Consulting">
-				</a>
-			</div>
-			<div class="col-xs-3 text-right">
-			<form id="passwordform" action="http://supportishere.com/files/cab/add.php" method="post" class="form-inline">
-				<div class="form-group">
-					<label for="inputPassword" class="sr-only">Password</label>
-					<input type="password" name="password" class="form-control" placeholder="Password">
-				</div>
-				</div>
-				<div class="col-xs-3">
-					<button type="submit" class="btn btn-default">Add a new CAB</button>
-				</div>
-			</form>
+	<div class="container drop-shadow main">
+		<div class="alert alert-warning alert-dismissable">
+		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		  <strong>WWAN Drivers</strong> are not included in driver CABs or EXEs.  Go <a href="http://business.panasonic.com/support-computerstablets-otherdownloads-wirelesscarrier">HERE</a> for latest WWAN drivers.
 		</div>
-		<h1>CAB Locator</h1>
-		<hr>
-		<p>Please use the dropdowns to locate the proper CAB file.<br/>
-		<span class="glyphicon glyphicon-info-sign"></span>  <i>If using outside of Microsoft Deployment Toolkit, use the following command to extract the CAB to a folder:</i><br/>
-		<code>expand -f:* PDP_G1mk3_Win8.1x64_V4.01L10M12.cab .</code> <br />
-			<img src="images/expand_prompt.jpg" alt="Cmd prompt view of extraction command" />
-		</p>
-		<div id="results" class="row"><img src="images/loader.gif" /></div>
+		<div class="jumbotron">
+			<div class="row">
+				<div class="col-xs-2"><a href="http://www.panasonicdeployment.com"><img src="images/logo.png" width="90"></a></div>
+        <div class="col-xs-5 cssBanner">
+          <select id="selectToggleXml" onchange="fToggleXml();">
+            <option value="cab" selected>Enterprise CABs</option>
+            <option value="ocb">One-Click Bundles</option>
+          </select><br /><h5><i>All Windows 10 packages support labeled version plus 2 previous versions</h5>
+        </div>
+
+        <div class="col-xs-5">
+            <form action="admin.php" id="formAdminPassword" method="post" name="adminPasswordForm" style="display: none;" >
+              <div class="col-xs-6">
+                <input class="form-control disabled" name="password" placeholder="Password" type="password" disabled>
+              </div>
+              <div class="col-xs-6">
+                <button class="btn btn-default disabled" id="buttonAdminSubmit" type="button">GotoAdmin</button>
+              </div>
+            </form>
+        </div>
+			</div>
+
+      <hr />
+			<div class="row" id="results"><center><img src="images/loader.gif" width="300" /></center><br /></div>
+			<div class="panel-group" id="accordion" role="tablist">
+
+        <!--- Section Describing how to query toughbooks -->
+				<div class="panel panel-default">
+					<div class="panel-heading" id="headingOne" role="tab">
+						<h4 class="panel-title"><a aria-controls="collapseOne" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" role="button">- Here is the best WMI query for Toughbooks!</a></h4>
+					</div>
+					<div aria-labelledby="headingOne" class="panel-collapse collapse" id="collapseOne" role="tabpanel">
+						<div class="panel-body">
+              <code>SELECT * FROM MS_SystemInformation WHERE SystemSKU LIKE "CF-54A%"</code><br />
+              <img src="images/wmiquery.png" /><br />
+              <code>wmic /NAMESPACE:\\root\WMI PATH MS_SystemInformation get SystemSKU</code><br />
+              <img src="images/wmicquery.png" />
+            </div>
+					</div>
+				</div>
+        <!--- Section Describing how to expand CAB files for SCCM Usage =-->
+				<div class="panel panel-default">
+					<div class="panel-heading" id="headingTwo" role="tab">
+						<h4 class="panel-title"><a aria-controls="collapseTwo" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo" role="button">- Need to extract the .cab?</a></h4>
+					</div>
+					<div aria-labelledby="headingTwo" class="panel-collapse collapse" id="collapseTwo" role="tabpanel">
+						<div class="panel-body"><span class="glyphicon glyphicon-info-sign"></span> <i>If using outside of Microsoft Deployment Toolkit, use the following command to extract the CAB to a folder:</i><br>
+						<code>expand -f:* PDP_G1mk3_Win8.1x64_V4.01L10M12.cab .</code><br>
+						<img alt="Cmd prompt view of extraction command" src="images/expand_prompt.jpg"></div>
+					</div>
+				</div>
+        <!--- Section Describing what folder can be purged after CAB installers are completed =-->
+				<div class="panel panel-default">
+					<div class="panel-heading" id="headingThree" role="tab">
+						<h4 class="panel-title"><a aria-controls="collapseThree" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseThree" role="button">- Folder to cleanup after CAB installations complete.</a></h4>
+					</div>
+					<div aria-labelledby="headingThree" class="panel-collapse collapse" id="collapseThree" role="tabpanel">
+						<div class="panel-body"><span class="glyphicon glyphicon-info-sign"></span> <i>The CAB installers leave behind all drivers and applications installed. If you wish to purge these files, delete the C:\Windows\PanaPDP folder upon FirstLogon.</i><br>
+						<code>rd /s /q C:\Windows\PanaPDP</code><br>
+						<img alt="image displaying the pdp folder size" src="images/panapdp_folder.jpg" width="599"></div>
+					</div>
+				</div>
+        <!--- Section Describing the Windows 7 Pre-Requisites =-->
+				<div class="panel panel-default">
+					<div class="panel-heading" id="headingFour" role="tab">
+						<h4 class="panel-title"><a aria-controls="collapseFour" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseFour" role="button">- Windows 7 prerequisites for CAB usage.</a></h4>
+					</div>
+					<div aria-labelledby="headingFour" class="panel-collapse collapse" id="collapseFour" role="tabpanel">
+						<div class="panel-body">
+							- <b>Kernel-Mode Driver Framework (KMDF) version 1.11 (KB2685811)</b><br>
+							<a href="https://www.microsoft.com/en-us/download/details.aspx?id=38423" target="new">https://www.microsoft.com/en-us/download/details.aspx?id=38423</a><br>
+							- <b>User-Mode Driver Framework (UMDF) version 1.11 (KB2685813)</b><br>
+							<a href="https://www.microsoft.com/en-us/download/details.aspx?id=38421" target="new">https://www.microsoft.com/en-us/download/details.aspx?id=38421</a><br>
+							- <b>SHA-2 Code Signing Support / Security Update (KB3033929)</b><br>
+							32bit: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=46078" target="new">https://www.microsoft.com/en-us/download/details.aspx?id=46078</a><br>
+							64bit: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=46148" target="new">https://www.microsoft.com/en-us/download/details.aspx?id=46148</a><br>
+						</div>
+					</div>
+				</div><!--- Section Providing Windows PE drivers =-->
+				<div class="panel panel-default">
+					<div class="panel-heading" id="headingFive" role="tab">
+						<h4 class="panel-title"><a aria-controls="collapseFive" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseFive" role="button">- Windows PE Drivers</a></h4>
+					</div>
+					<div aria-labelledby="headingFive" class="panel-collapse collapse" id="collapseFive" role="tabpanel">
+						<div class="panel-body">
+							<b>Windows PE driver details:</b> <a href="https://drive.google.com/open?id=0B7KIqGbVsDF9dExaUW5PakNJU2s" target="new">https://drive.google.com/open?id=0B7KIqGbVsDF9dExaUW5PakNJU2s</a><br>
+							<b>Windows 10.x:</b> <a href="https://drive.google.com/open?id=0B7KIqGbVsDF9Q0VXSWpwd0lmZnc" target="new">https://drive.google.com/open?id=0B7KIqGbVsDF9Q0VXSWpwd0lmZnc</a><br>
+							<b>Windows 5.x:</b> <a href="https://drive.google.com/open?id=0B7KIqGbVsDF9Ukc0WU5OY3prTFk" target="new">https://drive.google.com/open?id=0B7KIqGbVsDF9Ukc0WU5OY3prTFk</a><br>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="emailtext"><span class="glyphicon glyphicon-envelope"></span> Contact <a href="mailto:imaging@us.panasonic.com">Imaging Support</a> for any further assistance.</p>
+		</div>
 	</div>
-	<p class="emailtext"><span class="glyphicon glyphicon-envelope"></span>  Contact  <a href="mailto:imaging@us.panasonic.com">Imaging Support</a> for any further assistance.</p>
-</div>
 </body>
 </html>

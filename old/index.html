@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>TBook CAB Locator</title>
+<meta name="description" content="Site to simplify the process of locating the proper CAB file.">
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/main.css" media="all">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+<!---
+Old includes
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+Optional theme
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all">
+--->
+<script>
+$(document).ready(function() {
+	$.ajax({
+		type: "GET",
+		url: "xml/cabs.xml",
+		dataType: "xml",
+		success : function(data) {
+				window.xml=data;
+				xmlParser();
+		}
+	});
+});
+function xmlParser() {
+	var models = [];
+	$(window.xml).find('model').each(function() {
+	if ($(this).text().length > 0)
+	{
+		models.push($(this).text());
+	}
+	});
+	models.sort();
+	newmodels = [];
+	for	(i=0; i<models.length; i++) {
+		if (models[i] != models[i-1]) {
+			newmodels.push(models[i]);
+		}
+	}
+	var modelDropDowntxt = '<div class="col-xs-4" id="modelDropDown">' +
+	'<form action=""><select size="5" class="myDropDown" id="modelMenu" onchange="osDropDown()">';
+	for	(i=0;i<newmodels.length;i++) {
+		if (i==0) {
+			modelDropDowntxt = modelDropDowntxt + '<option value="' +
+			newmodels[i]+'" selected>'+newmodels[i]+'</option>';
+		} else {
+		modelDropDowntxt = modelDropDowntxt + '<option value="' +
+        newmodels[i]+'">'+newmodels[i]+'</option>';
+		}
+	}
+	modelDropDowntxt = modelDropDowntxt + '</select></form></div>';
+	$('#load').fadeOut();
+	$("#results").html(modelDropDowntxt);
+	$("#osDropDown").remove();
+	$("#modelDropDown").after('<div id="osDropDown" class="col-xs-4"></div>');
+	
+	osDropDown();
+}
+
+function osDropDown() {
+	osDropDowntxt = '<form action=""><select size="5" class="myDropDown" id="osMenu" onchange="showLink(this)">';
+	selectedModel = $("#modelMenu").val();
+	availOS = [];
+
+	for	(i=0; i<newmodels.length; i++) {
+		if (newmodels[i] == selectedModel)
+		{
+			$(window.xml).find('model:contains("'+newmodels[i]+'")').each(function() {
+				$(this).parent().find('os').each(function() {
+					availOS.push($(this).text()+','+$(this).parent().attr('name'));
+				});
+			});
+		}
+	}
+	availOS.sort();
+	for	(i=0; i<availOS.length; i++)
+	{
+		x = availOS[i].split(',');
+		osDropDowntxt += '<option value="' + x[1] + '" value>' + x[0] + '</option>';
+	}
+	osDropDowntxt += '</select></form>';
+	$("#osDropDown").html(osDropDowntxt);
+	$("#link").remove();
+	$("#osDropDown").after('<div id="link"></div>');
+
+	showLink();
+}
+
+function showLink(){
+	selectedcabName = $("#osMenu").val();
+	$("#link").html('');
+	$(window.xml).find('cab[name="'+selectedcabName+'"]').each(function() {
+		$(this).find('link').each(function() {
+			if ($(this).attr('type')=='CAB')
+			{
+				if ($(this).text().indexOf('https://drive.google.com'))
+				{
+					$("#link").append(' <a href="'+$(this).text()+'" target="new" data-toggle="tooltip" data-placement="bottom" title="' +
+					$(this).parent().attr('name') + '"><img src="images/FTP_logo.png" alt="FTP link" height="50"></a>');
+				} else {
+					$("#link").append(' <a href="'+$(this).text()+'" target="new" data-toggle="tooltip" data-placement="bottom" title="' +
+					$(this).parent().attr('name') + '"><img src="images/gdrive_logo.png" alt="Google link" height="50"></a>');
+				}
+			}
+			else if ($(this).attr('type')=='TXT')
+			{
+				$("#link").append(' <a href="'+$(this).text()+'" target="new" data-toggle="tooltip" data-placement="bottom" title="' +
+				$(this).parent().attr('name') + '"><img src="images/readme.png" alt="Readme link" height="50"></a>');
+			}
+			else if ($(this).attr('type')=='OCB')
+			{
+				$("#link").append(' <a href="'+$(this).text()+'" target="new" data-toggle="tooltip" data-placement="bottom" title="' +
+				$(this).parent().attr('name') + '"><img src="images/OCB.png" alt="Add-on link" height="50"></a>');
+			}
+		});
+	});
+}
+$("#adminSubmit").click(function() {
+	url = $(location).attr('href');
+	//arr = url.split('/');
+	//arr.pop();arr.pop();
+	//alert(arr.toString());
+	$('#adminPasswordForm').attr('action', url+'/admin.php');
+	$("#adminPasswordForm").submit();
+});
+</script>
+</head>
+<body>
+<div class="container drop-shadow main">
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-xs-7">
+				<a href="http://www.panasonicdeployment.com">
+				<img src = "images/SolutionsConsultingLogo.png" alt="Panasonic Solutions Consulting" width="65">
+				</a>
+			</div>
+			<div class="col-xs-3">
+			<form id="adminPasswordForm" action="admin.php" method="post" class="form-inline">
+			<div class="form-group">
+					<label for="inputPassword" class="sr-only">Password</label>
+					<input type="password" name="password" class="form-control" placeholder="Password">
+				</div>
+			</div>
+			<div class="col-xs-2 text-right">
+				<button id="adminSubmit" type="button" class="btn btn-default">Goto Admin</button>
+			</div>
+			</form>
+		</div>
+		<!--- <h2>CAB Locator</h2> --->
+		<!--- <hr> --->
+		<p>Please use the dropdowns to locate the proper <b>CAB</b> file.</p>
+		<div id="results" class="row"><img src="images/loader.gif" /></div>
+		<div class="panel-group" id="accordion" role="tablist">
+		
+			<!--- Section Describing how to expand CAB files for SCCM Usage --->
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingOne">
+				  <h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-controls="collapseOne" aria-expanded="false">
+					  - Not using Microsoft Deployment Toolkit?
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+					<div class="panel-body">
+						<span class="glyphicon glyphicon-info-sign"></span>  <i>If using outside of Microsoft Deployment Toolkit, use the following command to extract the CAB to a folder:</i><br/>
+						<code>expand -f:* PDP_G1mk3_Win8.1x64_V4.01L10M12.cab .</code> <br />
+						<img src="images/expand_prompt.jpg" alt="Cmd prompt view of extraction command" />
+					</div>
+				</div>
+			</div>
+			
+			<!--- Section Describing what folder can be purged after CAB installers are completed --->
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingTwo">
+				  <h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-controls="collapseTwo" aria-expanded="false">
+					  - Folder to cleanup after CAB installations complete.
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					<div class="panel-body">
+						<span class="glyphicon glyphicon-info-sign"></span>  <i>The CAB installers leave behind all drivers and applications installed.  If you wish to purge these files, delete the C:\Windows\PanaPDP folder upon FirstLogon.</i><br/>
+						<code>rd /s /q C:\Windows\PanaPDP</code> <br />
+						<img src="images/panapdp_folder.jpg" alt="image displaying the pdp folder size" width="599" />
+					</div>
+				</div>
+			</div>
+			
+			<!--- Section Describing the Windows 7 Pre-Requisites --->
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingThree">
+				  <h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-controls="collapseThree" aria-expanded="false">
+					  - Windows 7 prerequisites for CAB usage.
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					<div class="panel-body">
+					- <b>Kernel-Mode Driver Framework (KMDF) version 1.11 (KB2685811)</b><br />
+					   <a href="https://www.microsoft.com/en-us/download/details.aspx?id=38423" target="new">https://www.microsoft.com/en-us/download/details.aspx?id=38423</a><br />
+					- <b>User-Mode Driver Framework (UMDF) version 1.11 (KB2685813)</b><br />
+					   <a href="https://www.microsoft.com/en-us/download/details.aspx?id=38421" target="new">https://www.microsoft.com/en-us/download/details.aspx?id=38421</a><br />
+					- <b>SHA-2 Code Signing Support / Security Update (KB3033929)</b><br />
+					   32bit: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=46078" target="new">https://www.microsoft.com/en-us/download/details.aspx?id=46078</a><br />
+					   64bit: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=46148" target="new">https://www.microsoft.com/en-us/download/details.aspx?id=46148</a><br />
+					</div>
+				</div>
+			</div>
+			
+			<!--- Section Providing Windows PE drivers --->
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingFour">
+				  <h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-controls="collapseFour" aria-expanded="false">
+					  - Windows PE Drivers
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+					<div class="panel-body">
+						<b>Windows PE driver details:</b> <a href="https://drive.google.com/open?id=0BwHI1r8k8A75aG1QdWpRR0t4ZDg" target="new">https://drive.google.com/open?id=0BwHI1r8k8A75aG1QdWpRR0t4ZDg</a><br />
+						<b>Windows 10.x:</b> <a href="https://drive.google.com/open?id=0BwHI1r8k8A75RDNYYmdkbWhZblU" target="new">https://drive.google.com/open?id=0BwHI1r8k8A75RDNYYmdkbWhZblU</a><br />
+						<b>Windows 5.x:</b> <a href="https://drive.google.com/open?id=0BwHI1r8k8A75Z3pfeTNUU2RZdjA" target="new">https://drive.google.com/open?id=0BwHI1r8k8A75Z3pfeTNUU2RZdjA</a><br />
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			
+		</div>
+	<p class="emailtext"><span class="glyphicon glyphicon-envelope"></span>  Contact <a href="mailto:imaging@us.panasonic.com">Imaging Support</a> for any further assistance.</p>
+	</div>
+</div>
+</body>
+</html>

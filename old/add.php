@@ -44,10 +44,11 @@ function check(name) {
 }
 $(function() {
 	$("#submitbutton").click(function() {
-		check("model");check("googlelink");check("pdpname");
+		check("model");check("googlelink");check("altlink");check("pdpname");
 		if (
 		$("#model").val() !== "" &&
 		$("#googlelink").val() !== "" &&
+		//$("#altlink").val() !== "" &&
 		$("#pdpname").val() !== "" )
 		{
 			$("#cabform").submit();
@@ -84,10 +85,17 @@ print '
 			<div class="input-group" id="googlelinkdiv">
 				<span class="input-group-addon" id="basic-addon1">Google Link:</span>
 				<input name="googlelink" id="googlelink" type="text" class="form-control"
-					placeholder="https://drive.google.com/open?id=0B_636cnOwn0jZ09FSFdoNDhNVGM&amp;authuser=1"
+					placeholder="https://drive.google.com/open?id=0B_636cnOwn0jZ09FSFdoNDhNVGM"
 					aria-describedby="basic-addon1"
 					autocomplete=\'off\' onchange=\'check("googlelink");\' onkeyup=\'check("googlelink");\'
 					onpaste=\'check("googlelink");\' oninput=\'check("googlelink");\' tabindex="2" />
+			</div> <!--- /input group --->
+			<br />
+			<div class="input-group" id="altlinkdiv">
+				<span class="input-group-addon" id="basic-addon1">Alternate Link:</span>
+				<input name="altlink" id="altlink" type="text" class="form-control"
+					placeholder="ftp://ftp.panasonic.com/computer/cab/PDP_FZ-G1mk3_Win10x64_V4.02L10M00.cab"
+					aria-describedby="basic-addon1" autocomplete=\'off\' tabindex="3" />
 			</div> <!--- /input group --->
 			<br />
 			<div class="input-group" id="modeldiv">
@@ -111,6 +119,9 @@ print '
 				</label>
 				<label class="btn btn-default">
 					<input type="radio" name="os" id="option4" value="Windows 8.1 x64" autocomplete="off" tabindex="8" /> 8.1x64
+				</label>
+				<label class="btn btn-default">
+					<input type="radio" name="os" id="option5" value="Windows 10 x64" autocomplete="off" tabindex="9" /> 10x64
 				</label>
 			</div> <!--- /btn group --->
 			<br />

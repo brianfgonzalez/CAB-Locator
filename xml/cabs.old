@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cabs>
+  <cab name="pdp_cf-20mk1_win7x64_v6.00l10m00">
+    <model>cf-20a (mk1)</model>
+    <googlelink>
+    ftp://ftp.panasonic.com/computer/cab/pdp_cf-20mk1_win10x64_v6.00l10m00.cab</googlelink>
+    <ftplink>
+    ftp://ftp.panasonic.com/computer/cab/3.cab</ftplink>
+    <os>7x64</os>
+  </cab>
+  <cab name="pdp_cf-31mk5_win10x64_v4.02l13m00">
+    <model>cf-205 (mk5)</model>
+    <googlelink>
+    ftp://ftp.panasonic.com/computer/cab/pdp_cf-31mk5_win10x64_v4.02l13m00.cab</googlelink>
+    <ftplink>
+    ftp://ftp.panasonic.com/computer/cab/2.cab</ftplink>
+    <os>10x64</os>
+  </cab>
+  <cab name="pdp_cf-53mk4_win7x64_v2.00l11m00">
+    <model>cf-54d (mk2)</model>
+    <model>cf-315 (mk4)</model>
+    <googlelink>
+    ftp://ftp.panasonic.com/computer/cab/2.cab</googlelink>
+    <ftplink>
+    ftp://ftp.panasonic.com/computer/cab/3.cab</ftplink>
+    <os>7x64</os>
+  </cab>
+</cabs>

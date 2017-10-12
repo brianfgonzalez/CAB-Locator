@@ -3,62 +3,97 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>CAB Locator</title>
-<meta name="description" content="Site to simplify the process of locating the proper CAB file.">
+<title>CAB Locator XML Controller</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css" rel="stylesheet">
-<!--- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all"> --->
 <link rel="stylesheet" type="text/css" href="css/main.css" media="all">
-<script src="js/jquery-1.11.3.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 </head>
 <body>
 <div class="container drop-shadow main">
 	<div class="jumbotron">
 	
-<?php 
-/*
-print '
-Name: '.$_POST['pdpname'].'<br />
-URL: '.$_POST['googlelink'].'<br />
-Model: '.$_POST['model'].'<br />
-OS: '.$_POST['os'].'<br />
-';
-*/
+<?php
+
+//Load XML into simpleXML object
 $file = 'xml/cabs.xml';
 $xmlObj = simplexml_load_file($file);
-if ( is_object($xmlObj) && method_exists($xmlObj, 'children') )
-{
-		//print 'The CAB was there and I sucked it up!';
-		//$cab = $xmlObj->command->create->children()->create->addChild('cab');
-		$cab = $xmlObj->addChild('cab');
-		$cab->addChild('name', xml_entities($_POST['pdpname']));
-		$cab->addChild('model', xml_entities($_POST['model']));
-		$cab->addChild('os', xml_entities($_POST['os']));
-		$cab->addAttribute('link', xml_entities($_POST['googlelink']));
-		$config = array(
-								'indent'         => true,
-								'output-xml'     => true,
-								'input-xml'     => true);
 
-		// Tidy
-		$tidy = new tidy();
-		$tidy->parseString($xmlObj, $config, 'utf8');
-		$tidy->cleanRepair();
-		echo tidy_get_output($tidy);
-		$xmlObj->asXML($file);
-		print '
-<div class="alert alert-success">
-	<strong>Success!</strong>, the record was added, <a href="index.html">now return</a> to see your handy work.
-</div>
-		';
-}
-else 
-{
-    		print '
-<div class="alert alert-danger">
-	<strong>Error!</strong>, the cabs.xml was not found, <a href="add.html">Go Back</a> and try again.
-</div>
-		';
+//Configure tidy php module configuration
+$tidy = new tidy();
+$config = array(
+  'indent'=> true,
+  'output-xml'=> true,
+  'add-xml-space'=> true,
+  'input-xml'=> true,
+  'quote-ampersand' => true,
+  'quote-marks' => true,
+  'quote-nbsp' => true,
+  'indent-spaces' => 2
+);
+
+
+if($_GET['action']=="add") {		
+  //Delete any matching cab XMLs
+  $xpath = '//cab[contains(@name,"'.$_POST['newpdpname'].'")]';
+  $currentCabs = $xmlObj->xpath($xpath);
+  foreach ($currentCabs as $currentCab)
+  {
+    $cab = dom_import_simplexml($currentCab);
+    $cab->parentNode->removeChild($cab);
+  }
+
+  //Add the new cab node
+  $cab = $xmlObj->addChild('cab');
+  //Add the new name attribute
+  $cab->addAttribute('name', $_POST['newpdpname']);
+  //Add new model node/nodes
+  if(!is_bool(strpos($_POST['newmodel'], ','))) {
+    //More than one model was specified
+    $modelarray = explode(',', $_POST['newmodel']);
+    foreach($modelarray as $model) {
+      $cab->addChild('model', CleanXML($model));
+    }
+  } else {
+    //Only one model was specified
+    $cab->addChild('model', CleanXML($_POST['newmodel']));
+  }
+  //Add new links
+  foreach($_POST['cabLinks'] as $cabLink)
+  {
+    $l = $cab->addChild('link', CleanXML($cabLink['link']));
+    $l->addAttribute('type', CleanXML($cabLink['type']));
+  }
+  //Add cab OS
+  $cab->addChild('os', CleanXML($_POST['newos']));
+  //Tidy XML into string
+  $clean = $tidy->repairString($xmlObj->asXML(), $config, 'utf8');
+  //Open and write new XML
+  $cabsXML = fopen($file, "w");
+  fwrite($cabsXML, $clean);
+	print '
+	<div class="alert alert-success">
+		<strong>Success!</strong>, the record was deleted, <a href="..\">now return</a> to see your handy work.
+	</div>';
+} elseif ($_GET['action']=="delete") {
+	//Use XPath to find target node for removal
+  $xpath = '//cab[contains(@name,"'.$_POST['delcabname'].'")]';
+  $currentCabs = $xmlObj->xpath($xpath);
+  foreach ($currentCabs as $currentCab)
+  {
+    $cab = dom_import_simplexml($currentCab);
+    $cab->parentNode->removeChild($cab);
+  }
+
+  //Tidy XML into string
+  $clean = $tidy->repairString($xmlObj->asXML(), $config, 'utf8');
+  //Open and write new XML
+  $cabsXML = fopen($file, "w");
+  fwrite($cabsXML, $clean);
+	print '
+	<div class="alert alert-success">
+		<strong>Success!</strong>, the record was deleted, <a href="..\">now return</a> to see your handy work.
+	</div>';
 }
 
 function xml_entities($string) {
@@ -73,6 +108,23 @@ function xml_entities($string) {
             "&" => "&amp;",
         )
     );
+}
+
+
+
+//Function to cleanup XML content
+function CleanXML($string) {
+  $newstring = strtoupper(trim($string));
+  return strtr(
+    $newstring,
+    array(
+      "<" => "&lt;",
+      ">" => "&gt;",
+      '"' => "&quot;",
+      "'" => "&apos;",
+      "&" => "&amp;",
+    )
+  );
 }
 ?>
 	
