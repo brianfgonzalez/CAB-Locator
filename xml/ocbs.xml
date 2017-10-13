@@ -237,7 +237,7 @@
   <ocb name="M1F_Mk2_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9YXRnM013UUE2bjg]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/M1F_Mk2_Win10x64_1703_V1.00.exe]]></ftplink>
-    <model>M1</model>
+    <model>M1mk2</model>
     <os>WIN10X64</os>
     <md5>95ca422d6ac415a3b3b3df45bc43b828</md5>
     <parents>0B7KIqGbVsDF9Wk1kR0VocW0wYVU</parents>
@@ -511,7 +511,7 @@
   <ocb name="G1JKLMN_Mk3_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9UVVPMU9VTF9KeFU]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/G1JKLMN_Mk3_Win10x64_1703_V1.00.exe]]></ftplink>
-    <model>G1</model>
+    <model>G1mk3</model>
     <os>WIN10X64</os>
     <md5>b96021d6dec648db1947fbe8e63f165d</md5>
     <parents>0B7KIqGbVsDF9b3Vwc2RTbzBwaUE</parents>
@@ -896,7 +896,7 @@
   <ocb name="54GHJ_Mk3_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9OGs1YndfLWNmRm8]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/54GHJ_Mk3_Win10x64_1703_V1.00.exe]]></ftplink>
-    <model>54</model>
+    <model>54mk3</model>
     <os>WIN10X64</os>
     <md5>579c72c3a9cc8a04e7bc2081627e4d77</md5>
     <parents>0B7KIqGbVsDF9NkgtSzZ0VjVFLWM</parents>
@@ -926,7 +926,7 @@
   <ocb name="54DEF_Mk2_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9WVpCdDdlQTZ5b00]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/54DEF_Mk2_Win10x64_1703_V1.00.exe]]></ftplink>
-    <model>54</model>
+    <model>54mk2</model>
     <os>WIN10X64</os>
     <md5>6dad2370d35c6eb3c82988c6af0d6c2c</md5>
     <parents>0B7KIqGbVsDF9ZHEwM1ExeUJlRDQ</parents>
@@ -1259,7 +1259,7 @@
   </ocb>
   <ocb name="33DEPQ_Mk1S_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9NmhtWnl5T1VLaVk]]></googlelink>
-    <model>33</model>
+    <model>33mk1S</model>
     <os>WIN10X64</os>
     <md5>26d00d6d4136ded94ace779087f95386</md5>
     <parents>0BwHI1r8k8A75YXU2eEdTX3FpTGM</parents>
@@ -1269,7 +1269,7 @@
   <ocb name="33ABCLMN_Mk1_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9V0YtVVk0bU5yWk0]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/33ABCLMN_Mk1_Win10x64_1703_V1.00.exe]]></ftplink>
-    <model>33</model>
+    <model>33mk1</model>
     <os>WIN10X64</os>
     <md5>64fb3e9da7b170da13e17e88c48ba730</md5>
     <parents>0B7KIqGbVsDF9Qkl2eTZnUjdVSGs</parents>
@@ -1589,7 +1589,7 @@
   <ocb name="20ABCD_Mk1_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9cUlob2NKTVlhSGs]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/20ABCD_Mk1_Win10x64_1703_V1.00.exe]]></ftplink>
-    <model>20</model>
+    <model>20mk1</model>
     <os>WIN10X64</os>
     <md5>24f876bb989b2f39da6253e3085862c1</md5>
     <parents>0B7KIqGbVsDF9bUdxTWdleHNySU0</parents>
