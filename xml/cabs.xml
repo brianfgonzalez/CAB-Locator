@@ -655,6 +655,7 @@
   </cab>
   <cab name="33ABCLMN_Mk1_Win10x64_1703_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9NDZOaG43d2paVzA]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/33ABCLMN_Mk1_Win10x64_1703_V1.00.cab]]></ftplink>
     <model>33mk1</model>
     <os>10x64</os>
     <md5>f42df379da09e8c2665c61396eb16160</md5>
