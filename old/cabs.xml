@@ -613,15 +613,6 @@
     <size>910851137</size>
     <date>2017-09-21</date>
   </cab>
-  <cab name="G1PQR_Mk4_Win10x64_1703_V1.01.cab">
-    <googlelink><![CDATA[https://drive.google.com/open?id=1PwgtVrrVygjPgK0Sk3r8UYOE_v_wxcyD]]></googlelink>
-    <model>G1mk4</model>
-    <os>10x64</os>
-    <md5>cc86adb573d123905f7bf725682fab69</md5>
-    <parents>1kd9tGPDtbgBMCbpfUOrx1IO6FQxy8S2F</parents>
-    <size>1272292149</size>
-    <date>2017-11-17</date>
-  </cab>
   <cab name="G1JKLMN_Mk3_Win10x64_1703_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9X0tQWUxQX0YxMW8]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/G1JKLMN_Mk3_Win10x64_1703_V1.00.cab]]></ftplink>
