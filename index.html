@@ -3,12 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<title>CAB Finder 2.0</title>
+	<title>Toughbook Driver Finder 3.0</title>
 	<meta content="Site to simplify the process of locating the proper CAB file." name="description">
-	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="css/normalize.css" media="all" rel="stylesheet" type="text/css">
 	<link href="css/main.css" media="all" rel="stylesheet" type="text/css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   fajaxCall();
@@ -145,34 +146,25 @@ $(function()
 </script>
 </head>
 <body>
-	<div class="container drop-shadow main">
-		<div class="alert alert-warning alert-dismissable">
+	<div class="container main">
+		<div class="alert alert-info alert-dismissable">
 		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		  <strong>WWAN Drivers</strong> are not included in driver CABs or EXEs.  Go <a href="http://business.panasonic.com/support-computerstablets-otherdownloads-wirelesscarrier">HERE</a> for latest WWAN drivers.
+			<span class="glyphicon glyphicon-flag"></span> Cellular network drivers are not included in driver CABs or OCBs.  <a href="https://na.panasonic.com/us/support/computers-tablets-handhelds-driver-downloads">https://na.panasonic.com/us/support/computers-tablets-handhelds-driver-downloads</a></p>
 		</div>
 		<div class="jumbotron">
 			<div class="row">
-				<div class="col-xs-2"><a href="http://www.panasonicdeployment.com"><img src="images/logo.png" width="90"></a></div>
-        <div class="col-xs-5 cssBanner">
-          <select id="selectToggleXml" onchange="fToggleXml();">
-            <option value="cab" selected>Enterprise CABs</option>
-            <option value="ocb">One-Click Bundles</option>
-          </select><br /><h5><i>All Windows 10 packages support labeled version plus 2 previous versions</h5>
-        </div>
-
-        <div class="col-xs-5">
-            <form action="admin.php" id="formAdminPassword" method="post" name="adminPasswordForm" style="display: none;" >
-              <div class="col-xs-6">
-                <input class="form-control disabled" name="password" placeholder="Password" type="password" disabled>
-              </div>
-              <div class="col-xs-6">
-                <button class="btn btn-default disabled" id="buttonAdminSubmit" type="button">GotoAdmin</button>
-              </div>
-            </form>
-        </div>
+				<div class="col-sm-1">
+                    <a href="http://www.panasonicdeployment.com"><img src="images/logo.png" width="60"></a>
+                </div>
+				<div class="col-sm-5 togglebox ">
+				  <select id="selectToggleXml" onchange="fToggleXml();">
+					<option value="cab" selected>Enterprise CABs</option>
+					<option value="ocb">One-Click Bundles</option>
+				  </select>
+				</div>
+				<div class="col-sm-6"><p class="text-right"><span class="glyphicon glyphicon-info-sign"></span> All Windows 10 packages support labeled version plus 2 previous versions.</p></div>
 			</div>
-
-      <hr />
+			<hr />
 			<div class="row" id="results"><center><img src="images/loader.gif" width="300" /></center><br /></div>
 			<div class="panel-group" id="accordion" role="tablist">
 
