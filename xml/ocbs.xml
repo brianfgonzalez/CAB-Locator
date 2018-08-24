@@ -234,6 +234,15 @@
     <size>868890218</size>
     <date>2017-05-26</date>
   </ocb>
+  <ocb name="M1F_Mk2_Win10x64_1709_V1.00.exe">
+    <googlelink><![CDATA[https://drive.google.com/open?id=16gGtybqxSNdlMvDtpYC4K0Y7xtt6-ERC]]></googlelink>
+    <model>M1mk2</model>
+    <os>10x64</os>
+    <md5>e4a987a27b8e6dff1a3ecb0624c04428</md5>
+    <parents>1A_FLifScwnfh70lrHuFQbe2pkp9BKOov</parents>
+    <size>911899163</size>
+    <date>2018-04-03</date>
+  </ocb>
   <ocb name="M1F_Mk2_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9YXRnM013UUE2bjg]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/M1F_Mk2_Win10x64_1703_V1.00.exe]]></ftplink>
@@ -900,6 +909,15 @@
     <size>68270629</size>
     <date>2017-03-22</date>
   </ocb>
+  <ocb name="54GHJ_Mk3_Win10x64_1709_V1.00.exe">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1aaPuh5_uEKaTmsfj5y1h2UZ8gwCQc9y9]]></googlelink>
+    <model>54mk3</model>
+    <os>10x64</os>
+    <md5>47f96b4e7f2150ef37200767e0b12b7f</md5>
+    <parents>0B7KIqGbVsDF9NkgtSzZ0VjVFLWM</parents>
+    <size>1765033802</size>
+    <date>2018-03-05</date>
+  </ocb>
   <ocb name="54GHJ_Mk3_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9OGs1YndfLWNmRm8]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/54GHJ_Mk3_Win10x64_1703_V1.00.exe]]></ftplink>
@@ -929,6 +947,15 @@
     <parents>0B7KIqGbVsDF9ZHEwM1ExeUJlRDQ</parents>
     <size>1516947156</size>
     <date>2017-03-22</date>
+  </ocb>
+  <ocb name="54DEF_Mk2_Win10x64_1709_v100.exe">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1YV51wK2UI6m6ctbtEajDX776IoPr-4L7]]></googlelink>
+    <model>54mk2</model>
+    <os>10x64</os>
+    <md5>ed64367e9052ac259e4ef5a318120888</md5>
+    <parents>0B7KIqGbVsDF9ZHEwM1ExeUJlRDQ</parents>
+    <size>1501925734</size>
+    <date>2018-04-03</date>
   </ocb>
   <ocb name="54DEF_Mk2_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9WVpCdDdlQTZ5b00]]></googlelink>
@@ -979,6 +1006,15 @@
     <parents>0B7KIqGbVsDF9dXhRc2VGVlhPWVU</parents>
     <size>1386724000</size>
     <date>2017-03-22</date>
+  </ocb>
+  <ocb name="54ABC_Mk1_Win10x64_1709_V1.00.exe">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1WbbzAIhdAVBYVDM0GIiVb5Vrr18Nx8Lg]]></googlelink>
+    <model>54mk1</model>
+    <os>10x64</os>
+    <md5>c0cd86db49b5d8d68a617f962df02bce</md5>
+    <parents>1Oj4Fvxf9v0MTZdul-Ers83nraCBVx7bs</parents>
+    <size>1450735412</size>
+    <date>2018-04-03</date>
   </ocb>
   <ocb name="54ABC_Mk1_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=1uPBLkpw3Im-QfEqExMaeKwlmVxbfL8N6]]></googlelink>
@@ -1137,6 +1173,15 @@
     <size>825074918</size>
     <date>2017-03-22</date>
   </ocb>
+  <ocb name="5323457_Mk4_Win10x64_1709_V1.00.exe">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1T8iTu7Vl2ROqihBNjNnwtOST2P5WC882]]></googlelink>
+    <model>53mk4</model>
+    <os>10x64</os>
+    <md5>d2ba44beb6857ad96ce6fc63775f9588</md5>
+    <parents>1XS1KeLcoGFL_MKw9ODGgfUhwj1fhXIAc</parents>
+    <size>928314532</size>
+    <date>2018-04-03</date>
+  </ocb>
   <ocb name="52V-MK5-XP.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9SXYwRUJjX2dFR2M]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/52V-MK5-XP.exe]]></ftplink>
@@ -1282,6 +1327,15 @@
     <parents>0BwHI1r8k8A75YXU2eEdTX3FpTGM</parents>
     <size>1297737808</size>
     <date>2017-09-21</date>
+  </ocb>
+  <ocb name="33ABCLMN_Mk1_Win10x64_1709_V1.00.exe">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1A7db2_DiicoS0dcXhTYBEEe37fGKxDnz]]></googlelink>
+    <model>33mk1</model>
+    <os>10x64</os>
+    <md5>690c433871c0fbab382288d730c2ec78</md5>
+    <parents>0B7KIqGbVsDF9Qkl2eTZnUjdVSGs</parents>
+    <size>1248263658</size>
+    <date>2018-04-05</date>
   </ocb>
   <ocb name="33ABCLMN_Mk1_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9V0YtVVk0bU5yWk0]]></googlelink>
@@ -1602,6 +1656,24 @@
     <parents>0B7KIqGbVsDF9bUdxTWdleHNySU0</parents>
     <size>1022222925</size>
     <date>2017-03-22</date>
+  </ocb>
+  <ocb name="20ABCD_Mk1_Win10x64_1709_V1.00.exe">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1_z81jIewxsdvWkTBaPmOhv2AJH0MIG8K]]></googlelink>
+    <model>20mk1</model>
+    <os>10x64</os>
+    <md5>a0d6bae6686d847093494f8a3713739a</md5>
+    <parents>1qaChm2UE26l6cGk3evbeaLxnuvcEvQ-y</parents>
+    <size>1278022374</size>
+    <date>2018-04-09</date>
+  </ocb>
+  <ocb name="20ABCD_Mk1_Win10x64_1709_V1.00.exe">
+    <googlelink><![CDATA[https://drive.google.com/open?id=10sjCPLddzyCs1mWfj7szXAajV7mLRQTJ]]></googlelink>
+    <model>20mk1</model>
+    <os>10x64</os>
+    <md5>a0d6bae6686d847093494f8a3713739a</md5>
+    <parents>0B7KIqGbVsDF9bUdxTWdleHNySU0</parents>
+    <size>1278022374</size>
+    <date>2018-04-06</date>
   </ocb>
   <ocb name="20ABCD_Mk1_Win10x64_1703_V1.00.exe">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9cUlob2NKTVlhSGs]]></googlelink>

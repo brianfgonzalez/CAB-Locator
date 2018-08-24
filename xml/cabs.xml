@@ -540,6 +540,7 @@
   </cab>
   <cab name="PDP_CF-20mk1_Win7x86_V6.00L10M00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B_636cnOwn0jME42ZEs3ZjVKT0k]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/PDP_CF-20mk1_Win7x86_V6.00L10M00.cab]]></ftplink>
     <model>20mk1</model>
     <os>7x86</os>
     <md5>49169e8d37492882b150fc5c45eac767</md5>
@@ -603,6 +604,16 @@
     <size>1209110997</size>
     <date>2016-04-20</date>
   </cab>
+  <cab name="M1F_Mk2_Win10x64_1709_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1u_je2A5mhYs5UDLLayy7QLq3IAGML0ss]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/M1F_Mk2_Win10x64_1709_V1.00.cab]]></ftplink>
+    <model>M1mk2</model>
+    <os>10x64</os>
+    <md5>b799641faf4b42ca3da0f1941da32778</md5>
+    <parents>1N7lRuKk6MgHBcyh9RnYL5g2htPMQAADk</parents>
+    <size>1024588104</size>
+    <date>2018-04-03</date>
+  </cab>
   <cab name="M1F_Mk2_Win10x64_1703_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9STlTLU5Icl9yVlU]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/M1F_Mk2_Win10x64_1703_V1.00.cab]]></ftplink>
@@ -612,6 +623,16 @@
     <parents>0B7KIqGbVsDF9WFFxZXBMZi1mSDQ</parents>
     <size>910851137</size>
     <date>2017-09-21</date>
+  </cab>
+  <cab name="M1F_Mk2_Win10x64_1703_1709_1803_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1GttOHBof9rADpmO5mBvkm-Or1wDgca7R]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/M1F_Mk2_Win10x64_1703_1709_1803_V1.00.cab]]></ftplink>
+    <model>M1mk2</model>
+    <os>10x64</os>
+    <md5>af284258ebbf2907a3780e9be0d355ad</md5>
+    <parents>1HV6SS5qNcz_DadPYu7vp6yvaDh0yLTNq</parents>
+    <size>1002143488</size>
+    <date>2018-08-23</date>
   </cab>
   <cab name="M1D_Mk2V_Win10x64_1709_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=1_oE3jIgCO54omDcAw3vXmEqBBBcgm4cY]]></googlelink>
@@ -643,6 +664,16 @@
     <size>1272292149</size>
     <date>2017-11-17</date>
   </cab>
+  <cab name="G1PQR_MK4_Win10x64_1703_1709_1803_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=11r1i1QgPP9DM1UBcW5nPEy4vyJVx4RPP]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/G1PQR_MK4_Win10x64_1703_1709_1803_V1.00.cab]]></ftplink>
+    <model>G1mk4</model>
+    <os>10x64</os>
+    <md5>3dbe63c933a5c7186781194f90cf86b8</md5>
+    <parents>16dEQNxHvibR-BMS3w1u0h-IV6HR9VlRH</parents>
+    <size>1497257418</size>
+    <date>2018-08-23</date>
+  </cab>
   <cab name="G1JKLMN_Mk3_Win10x64_1703_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9X0tQWUxQX0YxMW8]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/G1JKLMN_Mk3_Win10x64_1703_V1.00.cab]]></ftplink>
@@ -652,6 +683,16 @@
     <parents>0B7KIqGbVsDF9QUtCWDJ6OU5Wak0</parents>
     <size>818837370</size>
     <date>2017-09-21</date>
+  </cab>
+  <cab name="G1F_Mk2_Win10x64_1709_V1.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1HgZ9vvF6LxRjXtyqkEYxZLVpucn712qM]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/G1F_Mk2_Win10x64_1709_V1.cab]]></ftplink>
+    <model>G1mk2</model>
+    <os>10x64</os>
+    <md5>853c415c29c540411ba38c50d5aee515</md5>
+    <parents>1IvoaTuUjhGxg3cu4qyOADkRXMC85FPz3</parents>
+    <size>829355589</size>
+    <date>2018-04-03</date>
   </cab>
   <cab name="54GHJ_Mk3_Win10x64_1709_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=1Sdo0Ds727uT--Zq5uB_EGKOAlef8JGiX]]></googlelink>
@@ -673,6 +714,26 @@
     <size>1689544084</size>
     <date>2017-09-21</date>
   </cab>
+  <cab name="54GHJ_MK3_Win10x64_1703_1709_1803_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1ClrgbPKp9OhF2qskCjFJLOBE_hVU0pxw]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/54GHJ_MK3_Win10x64_1703_1709_1803_V1.00.cab]]></ftplink>
+    <model>54mk3</model>
+    <os>10x64</os>
+    <md5>ef727048be44d87eeef9049d22cb2b74</md5>
+    <parents>13I2ybUlCVl8NU67CVs9ul-Mft6zJSwB_</parents>
+    <size>1816206990</size>
+    <date>2018-08-23</date>
+  </cab>
+  <cab name="54DEF_Mk2_Win10x64_1709_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1KZpl3uvQITaTEFSaK1rzscETkiY0H7RT]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/54DEF_Mk2_Win10x64_1709_V1.00.cab]]></ftplink>
+    <model>54mk2</model>
+    <os>10x64</os>
+    <md5>2442b5b211ff96d770bf950cb079c932</md5>
+    <parents>1WcKWTLHzLXJhSq9fs8H2W3G3bm76Qo00</parents>
+    <size>1557735613</size>
+    <date>2018-04-03</date>
+  </cab>
   <cab name="54DEF_Mk2_Win10x64_1703_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=0B7KIqGbVsDF9SUhVNFNiUDBUWGs]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/54DEF_Mk2_Win10x64_1703_V1.00.cab]]></ftplink>
@@ -683,6 +744,16 @@
     <size>1388027044</size>
     <date>2017-09-21</date>
   </cab>
+  <cab name="54ABC_Mk1_Win10x64_1709_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1_GfNesrATYT3ltgT93QvTFSJWYBvr9mX]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/54ABC_Mk1_Win10x64_1709_V1.00.cab]]></ftplink>
+    <model>54mk1</model>
+    <os>10x64</os>
+    <md5>607d48eb59a8b5c228af63675b5b1e2d</md5>
+    <parents>1rCMDeHmhsShGQwGsRRirEk6S_gkft5g6</parents>
+    <size>1512971921</size>
+    <date>2018-04-03</date>
+  </cab>
   <cab name="54ABC_Mk1_Win10x64_1703_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=1GOVs34R3p8618T6Ak4C2xBgKs-7nKpF6]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/54ABC_Mk1_Win10x64_1703_V1.00.cab]]></ftplink>
@@ -692,6 +763,16 @@
     <parents>1QPa0NtQKD8gPaW3ZjlfZkxvN4-iPuUAG</parents>
     <size>1424365241</size>
     <date>2017-12-08</date>
+  </cab>
+  <cab name="5323457_Mk4_Win10x64_1709_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=15vHNhRZ1G9TDwX1ZeVe_KiKb_1dNdInz]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/5323457_Mk4_Win10x64_1709_V1.00.cab]]></ftplink>
+    <model>53mk4</model>
+    <os>10x64</os>
+    <md5>608fafffcd13ac99a9312ee6d732b1a6</md5>
+    <parents>1TeSx0Jxkuu-R4WRjf6mI3eJPeZwpnpk-</parents>
+    <size>935059120</size>
+    <date>2018-04-03</date>
   </cab>
   <cab name="33DEPQ_Mk1_Win10x64_1709_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=1whmJxIHhELBqm3A0TCToh6Yzx7PWtHA3]]></googlelink>
@@ -712,6 +793,16 @@
     <size>1172648042</size>
     <date>2017-09-21</date>
   </cab>
+  <cab name="33DEPQ_Mk1_Win10x64_1703_1709_1803_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1VjyI5zQtmNAyUtFJVZNt4Fix7LtMKXSi]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/33DEPQ_Mk1_Win10x64_1703_1709_1803_V1.00.cab]]></ftplink>
+    <model>33mk1</model>
+    <os>10x64</os>
+    <md5>b09731055096689a715e50d5af7a8db3</md5>
+    <parents>1zVbYR6duRT3nCu_wBL8ZAatd6T7srgV4</parents>
+    <size>1351028661</size>
+    <date>2018-08-23</date>
+  </cab>
   <cab name="33ABCLMN_Mk1_Win10x64_1709_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=1OmOR4znf8UhUi_RZimBu9UkyvYa_Bje_]]></googlelink>
     <model>33mk1</model>
@@ -731,6 +822,26 @@
     <size>1170335513</size>
     <date>2017-09-21</date>
   </cab>
+  <cab name="33ABCLMN_Mk1_Win10x64_1703_1709_1803_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1Nfuj6tYoT5Z141DAGAbJ44QiZvQPv7P1]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/33ABCLMN_Mk1_Win10x64_1703_1709_1803_V1.00.cab]]></ftplink>
+    <model>33mk1</model>
+    <os>10x64</os>
+    <md5>7df4dda4c9f0617458f8847a0f6ac55f</md5>
+    <parents>1rwFrpdrpl0zo5j3MhOp5l8vdOvWWIlNq</parents>
+    <size>1236699499</size>
+    <date>2018-08-23</date>
+  </cab>
+  <cab name="31WXY_Mk4_Win10x64_1709_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1k-UVfvbGS4nx2JjqRF6q6fY5EY9qeIZh]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/31WXY_Mk4_Win10x64_1709_V1.00.cab]]></ftplink>
+    <model>31mk4</model>
+    <os>10x64</os>
+    <md5>adf8655637b55e419511aed53cd96e13</md5>
+    <parents>1KMgsoH4DzTM1ydOAnwybw9F6W3N_78sl</parents>
+    <size>1647324677</size>
+    <date>2018-04-03</date>
+  </cab>
   <cab name="311234_Mk5_Win10x64_1709_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=1sWg17d6pSprMzew869vZZlp0tHI7Huw9]]></googlelink>
     <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/311234_Mk5_Win10x64_1709_V1.00.cab]]></ftplink>
@@ -740,6 +851,16 @@
     <parents>1_qMgl_Kohx2OiBxRwgP0dp9cGpvKP_mH</parents>
     <size>926298683</size>
     <date>2018-02-01</date>
+  </cab>
+  <cab name="20EFGH_Mk2_Win10x64_1709_1803_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1Sp5X3aIkR88A6pQbweuC9O-loZgrJn-8]]></googlelink>
+    <ftplink><![CDATA[ftp://ftp.panasonic.com/computer/software/20EFGH_Mk2_Win10x64_1709_1803_V1.00.cab]]></ftplink>
+    <model>20mk2</model>
+    <os>10x64</os>
+    <md5>8941d9387694c472663a80dc832ffaeb</md5>
+    <parents>1FZLqeJY7TOyAjxxzE9uxblDIFeMPceWn</parents>
+    <size>1271805976</size>
+    <date>2018-08-23</date>
   </cab>
   <cab name="20ABCD_Mk1_Win10x64_1709_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=1XMFd9hLsZbXJeBIkRdxqZP5fzsZ2yiVd]]></googlelink>
@@ -758,6 +879,15 @@
     <parents>0B7KIqGbVsDF9ellTOEJzeF9UUVU</parents>
     <size>1231824340</size>
     <date>2017-09-21</date>
+  </cab>
+  <cab name="20ABCD_MK1_Win10x64_1703_1709_1803_V1.00.cab">
+    <googlelink><![CDATA[https://drive.google.com/open?id=1TZT2KV9EdYD8Oh2UfODaXNuf_VxH_7GJ]]></googlelink>
+    <model>20mk1</model>
+    <os>10x64</os>
+    <md5>0359df40c602f0d211eef417c006e720</md5>
+    <parents>1qG9ML7WOljWhnKNLz1z2SUcX891Lj4TU</parents>
+    <size>1413353705</size>
+    <date>2018-08-23</date>
   </cab>
   <cab name="19Z_Mk8_Win10x64_1709_V1.00.cab">
     <googlelink><![CDATA[https://drive.google.com/open?id=11ZEEkd0ZKdNBaKPOssWYIveXTLbGCViv]]></googlelink>
